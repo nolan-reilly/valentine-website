@@ -22,46 +22,28 @@ envelope.addEventListener("click", () => {
 
 // Logic to move the NO btn
 
-noBtn.addEventListener("mouseover", () => {
-  const min = 200;
-  const max = 200;
+document.addEventListener("mousemove", (e) => {
+  const btnRect = noBtn.getBoundingClientRect();
 
-  const distance = Math.random() * (max - min) + min;
-  const angle = Math.random() * Math.PI * 2;
+  const btnCenterX = btnRect.left + btnRect.width / 2;
+  const btnCenterY = btnRect.top + btnRect.height / 2;
 
-  const moveX = Math.cos(angle) * distance;
-  const moveY = Math.sin(angle) * distance;
+  const dx = e.clientX - btnCenterX;
+  const dy = e.clientY - btnCenterY;
 
-  noBtn.style.transition = "transform 0.25s ease";
-  noBtn.style.transform = `translate(${moveX}px, ${moveY}px)`;
-});
+  const distance = Math.sqrt(dx * dx + dy * dy);
 
-noBtn.addEventListener("mouseenter", () => {
-  const min = 200;
-  const max = 200;
+  const dangerRadius = 90; // how close the mouse can get
 
-  const distance = Math.random() * (max - min) + min;
-  const angle = Math.random() * Math.PI * 2;
+  if (distance < dangerRadius) {
+    const angle = Math.atan2(dy, dx);
 
-  const moveX = Math.cos(angle) * distance;
-  const moveY = Math.sin(angle) * distance;
+    const moveX = Math.cos(angle) * -200;
+    const moveY = Math.sin(angle) * -200;
 
-  noBtn.style.transition = "transform 0.25s ease";
-  noBtn.style.transform = `translate(${moveX}px, ${moveY}px)`;
-});
-
-noBtn.addEventListener("click", () => {
-  const min = 200;
-  const max = 200;
-
-  const distance = Math.random() * (max - min) + min;
-  const angle = Math.random() * Math.PI * 2;
-
-  const moveX = Math.cos(angle) * distance;
-  const moveY = Math.sin(angle) * distance;
-
-  noBtn.style.transition = "transform 0.25s ease";
-  noBtn.style.transform = `translate(${moveX}px, ${moveY}px)`;
+    noBtn.style.transition = "transform 0.2s ease";
+    noBtn.style.transform = `translate(${moveX}px, ${moveY}px)`;
+  }
 });
 
 // Logic to make YES btn to grow
