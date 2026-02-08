@@ -125,7 +125,7 @@ display: inline-block;
     z-index: 1;
     position: relative;
     transition: transform 0.15s ease;
-    cursor: default;
+    cursor: pointer;
 }
 
 .final-text{
