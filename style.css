@@ -116,16 +116,17 @@ display: inline-block;
 
 .yes-btn {
     position: relative;
-    z-index: 2;
+    z-index: 1;
     transform-origin: center center;
     transition: transform 0.3s ease;
+    pointer-events: none;
 }
 
 .no-btn {
-    z-index: 1;
+    z-index: 2;
     position: relative;
     transition: transform 0.15s ease;
-    pointer-events: none;
+    cursor: pointer;
 }
 
 .final-text{

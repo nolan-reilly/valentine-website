@@ -23,7 +23,7 @@ envelope.addEventListener("click", () => {
 // Logic to move the NO btn
 
 document.addEventListener("mousemove", (e) => {
-  const btnRect = noBtn.getBoundingClientRect();
+  const btnRect = yesBtn.getBoundingClientRect();
 
   const btnCenterX = btnRect.left + btnRect.width / 2;
   const btnCenterY = btnRect.top + btnRect.height / 2;
@@ -41,8 +41,8 @@ document.addEventListener("mousemove", (e) => {
     const moveX = Math.cos(angle) * -200;
     const moveY = Math.sin(angle) * -200;
 
-    noBtn.style.transition = "transform 0.2s ease";
-    noBtn.style.transform = `translate(${moveX}px, ${moveY}px)`;
+    yesBtn.style.transition = "transform 0.2s ease";
+    yesBtn.style.transform = `translate(${moveX}px, ${moveY}px)`;
   }
 });
 
@@ -69,10 +69,10 @@ document.addEventListener("mousemove", (e) => {
 
 // YES is clicked
 
-yesBtn.addEventListener("click", () => {
+noBtn.addEventListener("click", () => {
     title.textContent = "Yippeeee!";
 
-    catImg.src = "cat_dance.gif";
+    catImg.src = "mind-wow.gif";
 
     document.querySelector(".letter-window").classList.add("final");
 
